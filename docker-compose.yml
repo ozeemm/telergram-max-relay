@@ -1,0 +1,14 @@
+services:
+  relay:
+    build: .
+    container_name: telegram-max-relay
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      STATE_PATH: /data/state.sqlite3
+    volumes:
+      - relay_data:/data
+
+volumes:
+  relay_data:
